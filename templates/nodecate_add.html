@@ -1,22 +1,17 @@
 {% extends "layout.html" %}
-{% block title %}添加节点{% endblock %}
+{% block title %}添加节点类别{% endblock %}
 {% block body %}
 	{% if name%}
 		<div id=mainbar class=span9>
 			<section class=box>
-				<form action="" method=post class=new_topic>
-					<legend>新建节点</legend>
+				<form action="/nodecate/save" method=post class=new_topic>
+					{% csrf_token %}	
+					<legend>新建节点类别</legend>
 					<div class=form-horizontal>
-						<div class=control-group>
-							<label class=control-label>节点名：</label>
-							<div class=controls>
-								<input id=topic_title type=text size=30 name=nodename>
-							</div>
-						</div>
 						<div class=control-group>
 							<label class=control-label>节点类别：</label>
 							<div class=controls>
-								<input id=topic_title type=text size=30 name=nodeclass>
+								<input id=topic_title type=text size=30 name=name>
 							</div>
 						</div>
 						<div class=control-group>
@@ -30,7 +25,25 @@
 						</div>
 					</div>
 				</form>
+
 			</section>
+			<section class=box>
+        		  <table class=item-list>
+               			 <tbody>
+			 {% for nodecate in nodecates %}
+			 <span class="tags tabs">
+                              <a href="/">{{nodecate.name}}</a>
+                         </span>
+			{% endfor %}
+
+			 </tbody>
+        		 </table>
+			</section>
+	
 		</div>
 	{% endif %}
+
+
+
+
 {% endblock %}

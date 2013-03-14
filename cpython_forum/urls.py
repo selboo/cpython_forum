@@ -29,3 +29,7 @@ urlpatterns += patterns('',
 	 (r'^accounts/register/$', 'cpython_forum.views.register'),
 
 )
+urlpatterns += patterns('',
+	 (r'^nodecate/add/$', 'cpython_forum.node_views.nodecate_add'),
+	 (r'^nodecate/save$', 'cpython_forum.node_views.nodecate_save'),
+)

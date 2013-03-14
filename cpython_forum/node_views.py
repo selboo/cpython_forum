@@ -6,10 +6,16 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from cpython_forum.models import *
+from cpython_forum.forms import *
 
-def node_add (request):
-	#topics      = Topic.objects.all()
+def nodecate_add (request):
 	nodecates   = NodeCategory.objects.all()
-	nodes	    = Node.objects.all()
-	return render_to_response("node_add.html",{'name':request.user.username,'nodes':nodes,
+	return render_to_response("nodecate_add.html",{'name':request.user.username,
             "nodecates":nodecates},context_instance=RequestContext(request))
+
+def nodecate_save(request):
+
+	if request.method == 'POST':
+		nodecate = NodeCategory(name=request.POST['name'],description=request.POST['description'])
+		nodecate.save()
+		return  HttpResponseRedirect('/')		

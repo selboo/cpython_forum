@@ -11,7 +11,7 @@ class Node(models.Model):
 class NodeCategory(models.Model):
 	name         = models.CharField(max_length=30)
 	description  = models.TextField()
-	parent       = models.CharField(max_length=30)
+	parent       = models.CharField(default="/",max_length=30)
 		
 
 class UserProfile(models.Model):
@@ -19,11 +19,7 @@ class UserProfile(models.Model):
  	email       = models.CharField(max_length=120)
 	description = models.TextField()
 	website     = models.CharField(max_length=512)
-
-class City(models.Model):
-	name        = models.CharField(max_length=30)
-	description = models.TextField()
-	users       = models.ManyToManyField(UserProfile) 
+	image       = models.CharField(max_length=512)
 
 class Reply(models.Model):
 	topic_id  = models.IntegerField()

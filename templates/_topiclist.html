@@ -1,0 +1,79 @@
+<section id=topics class="box no-padding">
+	<table class=item-list>
+		<tbody>
+			{% if 1 %}
+				<header>
+					{% if 1 %}
+						<span class="tags tabs current">
+							<a href="/">全部</a>
+						</span>
+					{% else %}
+						<span class="tags tabs">
+							<a href="/">全部</a>
+						</span>
+					{% endif %}
+
+					{% for nodecate in nodecates %}
+						{% if 1%}
+							{% if 1 %}
+								<span class="tags tabs current">
+									<a href="/">{{ nodecate.name }}</a>
+								</span>
+							{% else %}
+								<span class="tags tabs">
+									<a href="/">{{ nodecate.name }}</a>
+								</span>
+							{% endif %}
+						{% endif %}
+					{% endfor %}
+				</header>
+			{% endif %}
+			{% for topic in topics %}
+				<tr class=item id=topic-{{ topic.id }}>
+					<td class=avatar>
+						<a href="/topic/">
+							<img src="/" style="height: 48px; width:48px;">
+						</a>
+					</td>
+					<td>
+						<h3>
+							<a class=title href="/">{{ topic.title }}</a>
+						</h3>
+						<div class=info>
+							<span class=tags>
+								<a class=gray href="/">{{ topic.node.name }}</a>
+							</span>
+							<span class="author list_big little">
+								<a class=title href="/" style="color: #aaa;font-weight:bolder;">{{ topic.author.name }}</a>
+							</span>
+							<span class="time gray little">
+								创建于 {{ topic.date}}
+								{% if 1 %}
+									，<a class=title href="/" style="color: #aaa;font-weight:bolder;">{{ topic.id}}</a>
+									回复于 {{ topic.id }}
+								{% endif %}
+							</span>
+						</div>
+					</td>
+					<td class="reply-count last">
+						{% if name %}
+							{% if 1 %}
+								<a href="/" class=read>{{ topic.reply_count }}</a>
+							{% else %}
+								<a href="/">{{ topic.reply_count }}</a>
+							{% endif %}
+						{% else %}
+							<a href="/">{{ topic.reply_count }}</a>
+						{% endif %}
+					</td>
+					{% if 1 %}
+						<td><p align="right"><a class=close href="/">×</a></p>
+					{% endif %}
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+		<footer>
+			<a href="/">» 更多话题</a>
+		</footer>
+</section>
